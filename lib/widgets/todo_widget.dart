@@ -177,10 +177,10 @@ class TodoWidget extends StatelessWidget {
                                     .read(todoListProvider.notifier)
                                     .updateTodoItem(index,val);
                               }
-                            });
+                            }).then((value) => Navigator.of(context).pop());
                             
-                            Navigator.of(context).pop();
-;
+                            
+
                             // ref.watch(todoProvider).whenData((value) => null);
                             titleTextController.text = "";
                             descTextController.text = "";
@@ -195,7 +195,9 @@ class TodoWidget extends StatelessWidget {
                               "title": titleTextController.text,
                               "desc": descTextController.text
                             };
-                            await ApiService.addTodoApi(sendData, context);
+                            await ApiService.addTodoApi(sendData, context).then((value) {
+                               Navigator.of(context).pop();
+                            });
                             titleTextController.text = "";
                             descTextController.text = "";
                           },

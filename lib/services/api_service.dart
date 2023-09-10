@@ -21,7 +21,7 @@ class ApiService {
     final jsonResponse = jsonDecode(response.body);
 
     if (jsonResponse['status']) {
-      // ignore: use_build_context_synchronously
+      
       Navigator.of(context)
         ..pop()
         ..pop();
@@ -57,11 +57,11 @@ class ApiService {
       // };
       Data.userDetail = User.fromJson(jsonResponse['user']);
       userId = Data.userDetail!.sId!;
-      // ignore: use_build_context_synchronously
+      
       Navigator.of(context).pushNamedAndRemoveUntil(
           '/HomeScreen', (Route<dynamic> route) => false);
     } else {
-      // ignore: use_build_context_synchronously
+      
       Navigator.pop(context);
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
@@ -91,7 +91,7 @@ class ApiService {
     final jsonResponse = jsonDecode(response.body);
 
     if (jsonResponse['status']) {
-      // ignore: use_build_context_synchronously
+      
       Navigator.of(context)
         ..pop()
         ..pop();
@@ -142,7 +142,7 @@ class ApiService {
     if (jsonResponse['status'] == 200 && jsonResponse['success']) {
       // Navigator.of(context).pop();
       Navigator.of(context)
-        ..pop();
+        .pop();
       return jsonResponse['success'];
     } else {
       // ignore: avoid_single_cascade_in_expression_statements

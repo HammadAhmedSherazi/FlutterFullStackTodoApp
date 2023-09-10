@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
           ),
           routes: {
             // '/TodoFetchScreen': (context) => const TodoFetchScreen(),
-            '/HomeScreen': (context) =>  HomeScreen(),
+            '/HomeScreen': (context) =>  const HomeScreen(),
             '/SplachScreen': (context) => const SplashScreen(),
             '/SignUpScreen': (context) => const SignUpScreen(),
             '/LoginScreen': (context) => const LoginScreen()

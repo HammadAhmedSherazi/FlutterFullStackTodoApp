@@ -1,7 +1,6 @@
 import 'dart:io';
 
 import 'package:todoapp/export_all.dart';
-import 'package:todoapp/services/api_service.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
