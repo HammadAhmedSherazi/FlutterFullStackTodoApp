@@ -26,6 +26,10 @@ class ApiService {
         ..pop()
         ..pop();
     }
+    else{
+      Navigator.of(context).pop();
+      messageDialog('Something is wrong');
+    }
   }
 
   //LOGIN API
@@ -63,11 +67,7 @@ class ApiService {
     } else {
       
       Navigator.pop(context);
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text(jsonResponse['message']),
-        ),
-      );
+      messageDialog(jsonResponse['message']);
     }
   }
 
