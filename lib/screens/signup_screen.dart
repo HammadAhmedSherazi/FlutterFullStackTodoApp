@@ -75,6 +75,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       width: 362.w,
                       onTap: () async {
                         if (SignUpScreen.formKey.currentState!.validate()) {
+                          FocusManager.instance.primaryFocus?.unfocus();
                           Map<String, String> sendData = {
                             "email": emailTextController.text.trim(),
                             "password": passwordTextController.text,
@@ -84,6 +85,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         }
                       })
                   : ButtonWidgetIOS(buttonText: 'Sign up', onTap: () async {
+                    FocusManager.instance.primaryFocus?.unfocus();
                      if (SignUpScreen.formKey.currentState!.validate()) {
                           Map<String, String> sendData = {
                             "email": emailTextController.text.trim(),

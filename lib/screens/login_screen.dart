@@ -48,6 +48,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       width: 362.w,
                       onTap: () {
                         if (formKey.currentState!.validate()) {
+                          FocusManager.instance.primaryFocus?.unfocus();
                           Map<String, String> sendReq = {
                             "email": emailTextController.text.trim(),
                             "password": passwordTextController.text
@@ -57,6 +58,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       })
                   : ButtonWidgetIOS(width: 362.w,buttonText: 'Login', onTap: () {
                      if (formKey.currentState!.validate()) {
+                        FocusManager.instance.primaryFocus?.unfocus();
                           Map<String, String> sendReq = {
                             "email": emailTextController.text.trim(),
                             "password": passwordTextController.text

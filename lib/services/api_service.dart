@@ -27,8 +27,8 @@ class ApiService {
         ..pop();
     }
     else{
-      Navigator.of(context).pop();
       messageDialog('Something is wrong');
+      Navigator.of(context).pop();
     }
   }
 
@@ -65,9 +65,9 @@ class ApiService {
       Navigator.of(context).pushNamedAndRemoveUntil(
           '/HomeScreen', (Route<dynamic> route) => false);
     } else {
+      messageDialog(jsonResponse['message']);
       
       Navigator.pop(context);
-      messageDialog(jsonResponse['message']);
     }
   }
 
@@ -103,8 +103,9 @@ class ApiService {
         ..pop()
         ..pop();
 
-      throw Exception(response.reasonPhrase);
+      // throw Exception(response.reasonPhrase);
     }
+    return null;
   }
 
   Future<List<dynamic>> getTodoList() async {

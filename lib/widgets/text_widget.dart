@@ -7,6 +7,7 @@ class TextWidget extends StatefulWidget {
   final bool? filled;
   final Color ? fillColor;
   final int ? maxlines;
+  final BorderRadius ? borderRadius;
   final String? Function(String?)? validator;
   const TextWidget(
       {super.key,
@@ -16,6 +17,7 @@ class TextWidget extends StatefulWidget {
       this.fillColor,
       this.controller,
       this.isPassword,
+      this.borderRadius,
       this.validator});
 
   @override
@@ -57,19 +59,19 @@ class _TextWidgetState extends State<TextWidget> {
           isDense: true,
           contentPadding: EdgeInsets.all(15.r),
           enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(30.r),
+              borderRadius: widget.borderRadius ?? BorderRadius.circular(30.r),
               borderSide: BorderSide.none),
           errorBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(30.r),
+              borderRadius: widget.borderRadius ?? BorderRadius.circular(30.r),
               borderSide: BorderSide.none),
           focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(30.r),
+              borderRadius: widget.borderRadius ?? BorderRadius.circular(30.r),
               borderSide: BorderSide.none),
           focusedErrorBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(30.r),
+              borderRadius: widget.borderRadius ?? BorderRadius.circular(30.r),
               borderSide: BorderSide.none),
           border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(30.r),
+              borderRadius: widget.borderRadius ?? BorderRadius.circular(30.r),
               borderSide: BorderSide.none),
           suffixIcon: widget.isPassword ?? false
               ? IconButton(

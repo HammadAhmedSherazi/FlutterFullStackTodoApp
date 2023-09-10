@@ -180,6 +180,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   TextWidget(
                     controller: descTextController,
+                    borderRadius: BorderRadius.circular(15.r),
                     fillColor: const Color.fromARGB(255, 238, 222, 227),
                     hintText: "Description...",
                     maxlines: 5,
