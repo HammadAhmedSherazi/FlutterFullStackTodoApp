@@ -1,15 +1,15 @@
 
 import '../export_all.dart';
 
-class TodoListNotifier extends StateNotifier<List<TodoModule>> {
+class TodoListNotifier extends StateNotifier<List<TodoModel>> {
   TodoListNotifier() : super([]);
 
-  void listAdd(List<TodoModule> lst){
+  void listAdd(List<TodoModel> lst){
     // state = [];
     state = [...state,...lst];
   }
 
-  void addTodo(TodoModule item) {
+  void addTodo(TodoModel item) {
     state = [...state,item];
   }
 
@@ -20,7 +20,7 @@ class TodoListNotifier extends StateNotifier<List<TodoModule>> {
   void toggleTodoStatus(int index) {
     // state[index].isCheck = !state[index].isCheck!;
     state = List.from(state)
-      ..[index] = TodoModule(
+      ..[index] = TodoModel(
         title: state[index].title,
         desc: state[index].desc,
         isCheck: !state[index].isCheck!,
@@ -32,11 +32,11 @@ class TodoListNotifier extends StateNotifier<List<TodoModule>> {
       
   }
 
-  void updateTodoItem(int index, TodoModule item){
+  void updateTodoItem(int index, TodoModel item){
     state =List.from(state)..[index] = item;
   }
 }
 
-final todoListProvider = StateNotifierProvider<TodoListNotifier, List<TodoModule>>(
+final todoListProvider = StateNotifierProvider<TodoListNotifier, List<TodoModel>>(
   (ref) => TodoListNotifier(),
 );

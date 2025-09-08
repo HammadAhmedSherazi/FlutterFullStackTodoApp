@@ -9,7 +9,7 @@ import 'package:flutter_slidable/flutter_slidable.dart';
 import '../export_all.dart';
 
 class TodoWidget extends StatelessWidget {
-   final TodoModule ? item;
+   final TodoModel ? item;
     WidgetRef ? ref;
     final int ? index;
     TodoWidget({
@@ -122,7 +122,7 @@ class TodoWidget extends StatelessWidget {
         ));
   }
 
-  Future<dynamic> editTodoDialog(BuildContext context, WidgetRef ref, TodoModule todo, int index){
+  Future<dynamic> editTodoDialog(BuildContext context, WidgetRef ref, TodoModel todo, int index){
     titleTextController.text = todo.title!;
     descTextController.text = todo.desc!;
     return showDialog(

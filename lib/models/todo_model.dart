@@ -1,4 +1,4 @@
-class TodoModule {
+class TodoModel {
   String? sId;
   String? userId;
   String? title;
@@ -6,9 +6,9 @@ class TodoModule {
   bool? isCheck;
   int? iV;
 
-  TodoModule({this.sId, this.userId, this.title, this.desc, this.iV, this.isCheck});
+  TodoModel({this.sId, this.userId, this.title, this.desc, this.iV, this.isCheck});
 
-  TodoModule.fromJson(Map<String, dynamic> json) {
+  TodoModel.fromJson(Map<String, dynamic> json) {
     sId = json['_id'];
     userId = json['userId'];
     title = json['title'];
@@ -29,8 +29,8 @@ class TodoModule {
   }
 }
 
-// class TodoModule {
-//   TodoModule({
+// class TodoModel {
+//   TodoModel({
 //     required this.userId,
 //     required this.id,
 //     required this.title,
@@ -41,7 +41,7 @@ class TodoModule {
 //   late final String title;
 //   late final bool completed;
   
-//   TodoModule.fromJson(Map<String, dynamic> json){
+//   TodoModel.fromJson(Map<String, dynamic> json){
 //     userId = json['userId'];
 //     id = json['id'];
 //     title = json['title'];

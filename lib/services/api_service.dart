@@ -36,11 +36,12 @@ class ApiService {
   static loginApi(Map<String, String> reqData, BuildContext context) async {
     showDialog(
       context: context,
-      builder: (context) => WillPopScope(
+      builder: (context) => PopScope(
         child: spinkit,
-        onWillPop: () async {
-          return false;
+        onPopInvokedWithResult: (didPop, result) {
+          return;  
         },
+        
       ),
     );
     final response = await http.post(Uri.parse('$apiUrl/login'),
@@ -73,14 +74,14 @@ class ApiService {
 
   // ignore: todo
   //ADD TODO API
-  static Future<TodoModule?> addTodoApi(
+  static Future<TodoModel?> addTodoApi(
       Map<String, String> reqData, BuildContext context) async {
     showDialog(
       context: context,
-      builder: (context) => WillPopScope(
+      builder: (context) => PopScope(
         child: spinkit,
-        onWillPop: () async {
-          return false;
+        onPopInvokedWithResult: (didPop, result) {
+          return;
         },
       ),
     );
@@ -96,7 +97,7 @@ class ApiService {
         ..pop()
         ..pop();
 
-      TodoModule item = TodoModule.fromJson(jsonResponse['success']);
+      TodoModel item = TodoModel.fromJson(jsonResponse['success']);
       return item;
     } else {
       Navigator.of(context)
@@ -118,7 +119,7 @@ class ApiService {
     if (jsonResponse['status'] == 200 && jsonResponse['success']) {
       // List todoList = [];
 
-      return jsonResponse['todos'].map((e) => TodoModule.fromJson(e)).toList();
+      return jsonResponse['todos'].map((e) => TodoModel.fromJson(e)).toList();
     } else {
       throw Exception(response.reasonPhrase);
     }
@@ -127,11 +128,14 @@ class ApiService {
   static Future<bool> deteteTodoApi(String todoId, BuildContext context) async {
     showDialog(
       context: context,
-      builder: (context) => WillPopScope(
+      builder: (context) => PopScope(
         child: spinkit,
-        onWillPop: () async {
-          return false;
+        onPopInvokedWithResult: (didPop, result) {
+          return;
         },
+        // onWillPop: () async {
+        //   return false;
+        // },
       ),
     );
     final response = await http.post(Uri.parse('$apiUrl/deleteTodo'),
@@ -153,13 +157,13 @@ class ApiService {
     }
   }
 
-  static Future<TodoModule?> updateTodo(Object item) async {
+  static Future<TodoModel?> updateTodo(Object item) async {
     final response = await http.patch(Uri.parse('$apiUrl/updateTodo'),
         headers: {"Content-Type": "application/json"}, body: jsonEncode(item));
     final jsonResponse = jsonDecode(response.body);
 
     if (jsonResponse['status'] == 200 && jsonResponse['success']) {
-      return TodoModule.fromJson(jsonResponse['todo']);
+      return TodoModel.fromJson(jsonResponse['todo']);
     } else {
       throw Exception(response.reasonPhrase);
     }

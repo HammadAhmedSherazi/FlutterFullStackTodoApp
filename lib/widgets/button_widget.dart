@@ -14,14 +14,14 @@ class ButtonWidgetAndroid extends StatelessWidget {
     return ElevatedButton(
         onPressed: onTap,
         style: ButtonStyle(
-            fixedSize: MaterialStateProperty.all(Size.fromWidth(width)),
-            elevation: const MaterialStatePropertyAll(10.0),
-            padding: MaterialStatePropertyAll(EdgeInsets.all(15.r)),
-            shape: MaterialStatePropertyAll(RoundedRectangleBorder(
+            fixedSize: WidgetStatePropertyAll(Size.fromWidth(width)),
+            elevation: const WidgetStatePropertyAll(10.0),
+            padding: WidgetStatePropertyAll(EdgeInsets.all(15.r)),
+            shape: WidgetStatePropertyAll(RoundedRectangleBorder(
                 borderRadius: BorderRadius.horizontal(
                     left: Radius.circular(30.r),
                     right: Radius.circular(30.r)))),
-            backgroundColor: const MaterialStatePropertyAll(
+            backgroundColor: const WidgetStatePropertyAll(
                 Color.fromARGB(209, 119, 51, 48))),
         child: Text(
           buttonText,
@@ -47,12 +47,11 @@ class ButtonWidgetIOS extends StatelessWidget {
       height: 46,
       child: CupertinoButton(
           onPressed: onTap,
-          minSize: width,
           alignment: Alignment.center,
           // padding: EdgeInsets.all(15.r),
           color: const Color.fromARGB(209, 119, 51, 48),
           borderRadius: BorderRadius.horizontal(
-              left: Radius.circular(30.r), right: Radius.circular(30.r)),
+              left: Radius.circular(30.r), right: Radius.circular(30.r)), minimumSize: Size(width, width),
           child: Text(
             buttonText,
             style: TextStyle(

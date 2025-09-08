@@ -13,7 +13,7 @@ TextStyle headingStyle = TextStyle(
     color: Colors.white,
     fontWeight: FontWeight.w500,
     fontSize: 22.sp,
-    shadows: [Shadow(color: Colors.black.withOpacity(0.5))]);
+    shadows: [Shadow(color: Colors.black.withValues(alpha:0.5))]);
 
 //GLOBAL VARIABLE
 
@@ -39,4 +39,4 @@ const spinkit = SpinKitThreeBounce(
         fontSize: 14.sp);
   }
 
-// final List<TodoModule?> todoList = [];
+// final List<TodoModel?> todoList = [];

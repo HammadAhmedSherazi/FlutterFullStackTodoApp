@@ -27,7 +27,7 @@ export '../utils/dummy_data.dart';
 
 
 //MODELS
-export '../modules/todo_module.dart';
+export 'models/todo_model.dart';
 
 
 //SERVICE
