@@ -48,7 +48,7 @@ class ButtonWidgetIOS extends StatelessWidget {
       child: CupertinoButton(
           onPressed: onTap,
           alignment: Alignment.center,
-          // padding: EdgeInsets.all(15.r),
+          padding: EdgeInsets.zero,
           color: const Color.fromARGB(209, 119, 51, 48),
           borderRadius: BorderRadius.horizontal(
               left: Radius.circular(30.r), right: Radius.circular(30.r)), minimumSize: Size(width, width),
